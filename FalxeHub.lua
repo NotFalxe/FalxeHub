@@ -291,6 +291,17 @@ function prison_life()
 
 
 
+    PlayerSection:NewToggle('Infinite Jump', 'Gives you infinite jumps.', function()
+        local InfiniteJumpEnabled = true
+        game:GetService("UserInputService").JumpRequest:connect(function()
+            if InfiniteJumpEnabled then
+                game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+            end
+        end)
+    end)
+
+
+
     -- Teleports Section
     local Teleports = Window:NewTab('Teleports')
     local TeleportsSection = Teleports:NewSection('Teleports')
@@ -653,7 +664,7 @@ function MM2()
 
 
     PlayerSection:NewButton('Noclip [GUI]', 'Allows you to noclip, or otherwise called walk through walls.', function()
-        loadstring(game:HttpGet('https://pastebin.com/raw/9LBsfRkD'))()
+        loadstring(game:HttpGet('https://pastebin.com/raw/4A22CkWv'))()
     end)
 
 
@@ -667,14 +678,14 @@ function MM2()
     end)
 
 
-PlayerSection:NewToggle('Infinite Jump', 'Gives you infinite jumps', function()
-    local InfiniteJumpEnabled = true
-    game:GetService("UserInputService").JumpRequest:connect(function()
-        if InfiniteJumpEnabled then
-            game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
-        end
+    PlayerSection:NewToggle('Infinite Jump', 'Gives you infinite jumps.', function()
+        local InfiniteJumpEnabled = true
+        game:GetService("UserInputService").JumpRequest:connect(function()
+            if InfiniteJumpEnabled then
+                game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+            end
+        end)
     end)
-end)
 
 
 
@@ -729,6 +740,8 @@ end)
         local Target = game:GetService("ReplicatedStorage").PlayEmote;
         Target:Fire(string_1);
     end)
+
+    
 
 
 
